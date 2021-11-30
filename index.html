@@ -9,58 +9,48 @@
     <link rel="stylesheet" href="./styles/reset.css">
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/home.css">
-    <title>Document</title>
+    <title>Cup Game</title>
 </head>
 
 <body>
     <header>
-        <div class="gutter-right logo">
-            <img src="./assets/big-logo.png" />
-        </div>
+        <!-- <h1>Guess the cup where the ball is hidden!</h1>
+        <p>(click "Reset Cups" to try again!)</p>  -->
     </header>
     <main>
+        <h1>Guess the cup where the ball is hidden!</h1>
+        <p>(click "Reset Cups" to try again!)</p> 
         <section class="main-section">
-            <img class="main-logo" src="./assets/alchemy-logo.png" />
-            <h2>
-                Welcome to Alchemy Bootstrap!
-            </h2>
+            <div class="cup-section">
 
-            <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam repellendus similique consectetur
-                voluptas facilis molestiae voluptates nobis error sapiente, ad, ipsa vero non, sint eligendi? Eos
-                praesentium iusto magnam exercitationem.
-                Earum sunt voluptatibus molestias, sint voluptatum quos reiciendis. Id asperiores deleniti dolores
-                provident, eius, nostrum aperiam vel, optio qui illo corrupti in. Eum quam, est nemo porro sapiente
-                excepturi assumenda.
-                Rerum unde quidem maxime. Ullam, dolores labore molestias voluptatibus adipisci quod? Quaerat nihil
-                inventore molestiae assumenda, voluptates vel necessitatibus eligendi? Accusamus ratione eligendi
-                reprehenderit? Beatae incidunt molestias ea soluta nulla.
-                Fugiat quae soluta voluptate mollitia praesentium modi ex illo, autem assumenda, vel aliquam fugit
-                possimus dolorem esse corporis ipsa! Voluptatem sapiente error non, ea optio suscipit quasi maxime nobis
-                ex?
-                Et ipsa tenetur ullam ab nesciunt quas fugit velit impedit illum esse eligendi corporis culpa
-                praesentium aspernatur ex sint veniam quidem, doloribus corrupti hic vitae. Eum neque ducimus omnis
-                exercitationem?
-            </p>
-            <hr />
-            <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam repellendus similique consectetur
-                voluptas facilis molestiae voluptates nobis error sapiente, ad, ipsa vero non, sint eligendi? Eos
-                praesentium iusto magnam exercitationem.
-                Earum sunt voluptatibus molestias, sint voluptatum quos reiciendis. Id asperiores deleniti dolores
-                provident, eius, nostrum aperiam vel, optio qui illo corrupti in. Eum quam, est nemo porro sapiente
-                excepturi assumenda.
-                Rerum unde quidem maxime. Ullam, dolores labore molestias voluptatibus adipisci quod? Quaerat nihil
-                inventore molestiae assumenda, voluptates vel necessitatibus eligendi? Accusamus ratione eligendi
-                reprehenderit? Beatae incidunt molestias ea soluta nulla.
-                Fugiat quae soluta voluptate mollitia praesentium modi ex illo, autem assumenda, vel aliquam fugit
-                possimus dolorem esse corporis ipsa! Voluptatem sapiente error non, ea optio suscipit quasi maxime nobis
-                ex?
-                Et ipsa tenetur ullam ab nesciunt quas fugit velit impedit illum esse eligendi corporis culpa
-                praesentium aspernatur ex sint veniam quidem, doloribus corrupti hic vitae. Eum neque ducimus omnis
-                exercitationem?
-            </p>
+                <div class="cup" id="cup-A"> 
+                    <img src="./assets/original-cup.png" id="cup-A-img" alt="upside down grey cup">
+                    <button class="btn" id="cup-A-btn">Cup A</button>
+                </div>
 
+                <div class="cup" id="cup-B">
+                    <img src="./assets/original-cup.png" id="cup-B-img" alt="upside down grey cup">
+                    <button class="btn" id="cup-B-btn">Cup B</button>
+                </div>
+
+                <div class="cup" id="cup-C">
+                    <img src="./assets/original-cup.png" id="cup-C-img" alt="upside down grey cup">
+                    <button class="btn" id="cup-C-btn">Cup C</button>
+                </div>
+            </div>
+            
+            <div class="reset-section">
+                <button class="btn" id="reset-btn">Reset Cups</button>
+            </div>
+            
+            <div class="win-loss-section">
+                <div>Wins: <span id="wins">0</span></div>
+                <div>Losses: <span id="losses">0</span></div>
+                <div>Attempts: <span id="attempts">0</span></div>
+            </div>
+
+            
+            
         </section>
     </main>
     <footer>
