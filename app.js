@@ -18,71 +18,32 @@ const resetStatsBtn = document.getElementById('reset-stats-btn');
 let wins = 0;
 let attempts = 0;
 
-// set event listeners 
-cupABtn.addEventListener('click', () => {
-  // - (reset image of all cups)
-    resetImgs();
-    
-  //   ..set state..
-  //   - increment total attempts
-    attempts++;
-  //   - use math.random() to decide which cup is correct
-    const correctCup = Math.floor(Math.random() * 3);
-    // console.log(correctCup);
+const cupArr = [
+    cupA,
+    cupB,
+    cupC,
+];
+// console.log(cupArr);
 
-  //   - we need to compare the correct cup with the cup the user clicked
-  //        if the user clicked the correct cup, increment win
-    if (correctCup === 0) {
-        cupA.src = './assets/correct-cup.png';
-        wins++;
-        
-//       if the user did NOT click the click correct cup, increment loss (because losses can be derived by subtracting wins from total attempts, WE SHOULD NOT TRACK as state)
-    } else {
-        cupA.src = './assets/wrong-cup.png';
-    }
-  //   ..update DOM..
-  //   - change image of correct cup
-  //   - change number of Wins/loss/Attempts
-    updateWinLossAtt();
-    disableBtns();
+cupABtn.addEventListener('click', () => {
+
+    const correctCup = getRandomItem(cupArr);
+
+    handleGuess(cupA, correctCup);
 });
 
-  // get user input
-  // use user input to update state 
-  // update DOM to reflect the new state
-
 cupBBtn.addEventListener('click', () => {
-    resetImgs();
-    attempts++;
-
-    const correctCup = Math.floor(Math.random() * 3);
-
-    if (correctCup === 1) {
-        cupB.src = './assets/correct-cup.png';
-        wins++;
-    } else {
-        cupB.src = './assets/wrong-cup.png'; 
-    }
-
-    updateWinLossAtt();
-    disableBtns();
+    
+    const correctCup = getRandomItem(cupArr);
+    
+    handleGuess(cupB, correctCup);
 });
 
 cupCBtn.addEventListener('click', () => {
-    resetImgs();
-    attempts++;
 
-    const correctCup = Math.floor(Math.random() * 3);
+    const correctCup = getRandomItem(cupArr);
 
-    if (correctCup === 2) {
-        cupC.src = './assets/correct-cup.png';
-        wins++;
-    } else {
-        cupC.src = './assets/wrong-cup.png'; 
-    }
-
-    updateWinLossAtt();
-    disableBtns();
+    handleGuess(cupC, correctCup);
 });
 
 resetCupBtn.addEventListener('click', () => {
@@ -93,6 +54,28 @@ resetCupBtn.addEventListener('click', () => {
 resetStatsBtn.addEventListener('click', () => {
     resetStats();
 });
+
+function getRandomItem(arr) {
+    const index = Math.floor(Math.random() * arr.length);
+
+    return arr[index];
+}
+// console.log(getRandomItem(cupArr));
+
+function handleGuess(userGuess, correctCup) {
+    resetImgs();
+    attempts++;
+
+    if (userGuess === correctCup) {
+        correctCup.src = './assets/correct-cup.png';
+        wins++;
+    } else {
+        userGuess.src = './assets/wrong-cup.png';
+    }
+
+    updateWinLossAtt();
+    disableBtns();
+}
 
 function disableBtns() {
     cupABtn.disabled = true;
@@ -123,13 +106,3 @@ function updateWinLossAtt() {
     attemptsEl.textContent = attempts;
     lossesEl.textContent = attempts - wins;
 }
-
-// function handleGuess(userGuess, correctCup) {
-//     resetImgs();
-//     attempts++;
-    
-//     const correctCup = Math.floor(Math.random() * 3);
-    
-
-//     updateWinLossAtt();
-// }
