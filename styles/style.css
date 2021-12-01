@@ -104,3 +104,13 @@ footer {
     width: 100px;
     cursor: pointer;
 }
+
+
+.btn:hover {
+    color: #fff;
+    background-color: #000;
+}
+
+.reset-section {
+    margin: 10px;
+}
