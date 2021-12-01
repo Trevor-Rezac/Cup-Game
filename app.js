@@ -44,6 +44,7 @@ cupABtn.addEventListener('click', () => {
   //   - change image of correct cup
   //   - change number of Wins/loss/Attempts
     updateWinLossAtt();
+    disableBtns();
 });
 
   // get user input
@@ -64,6 +65,7 @@ cupBBtn.addEventListener('click', () => {
     }
 
     updateWinLossAtt();
+    disableBtns();
 });
 
 cupCBtn.addEventListener('click', () => {
@@ -80,20 +82,34 @@ cupCBtn.addEventListener('click', () => {
     }
 
     updateWinLossAtt();
+    disableBtns();
 });
 
 resetCupBtn.addEventListener('click', () => {
     resetImgs();
+    enableBtns();
 });
 
 resetStatsBtn.addEventListener('click', () => {
     resetStats();
 });
 
+function disableBtns() {
+    cupABtn.disabled = true;
+    cupBBtn.disabled = true;
+    cupCBtn.disabled = true;
+}
+
+function enableBtns() {
+    cupABtn.disabled = false;
+    cupBBtn.disabled = false;
+    cupCBtn.disabled = false;
+}
+
 function resetStats() {
-    winsEl.textContent = 0;
-    lossesEl.textContent = 0;
-    attemptsEl.textContent = 0;
+    wins = 0;
+    attempts = 0;
+    updateWinLossAtt();
 }
 
 function resetImgs() {
